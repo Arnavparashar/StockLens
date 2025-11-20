@@ -1,75 +1,80 @@
-StockLens — Financial Dashboard
+📈 StockLens: Interactive Financial Dashboard
+StockLens is a fully interactive financial analytics dashboard built to democratize stock market data. Designed for investors, students, and finance enthusiasts, it leverages the power of Python and Streamlit to transform complex market data into actionable insights.
 
-StockLens is a simple, clean Streamlit dashboard for exploring stock prices with live data and technical indicators.
-It is built for clarity, speed and ease of use.
+Users can explore historical performance, visualize critical technical indicators, and analyze market trends through dynamic, professional-grade visualizations.
 
-Features
+🚀 Launch Live Dashboard
+🌟 Key Features
+Real-Time Market Data: Instantly fetch live data for any stock symbol (e.g., AAPL, TSLA, RELIANCE.NS) using the yfinance library.
 
-Live stock price lookup
+Advanced Technical Analysis:
 
-Interactive candlestick chart
+RSI (Relative Strength Index): Identify overbought or oversold conditions.
 
-RSI, SMA, EMA indicators
+Moving Averages: Visualize trends with SMA (Simple) and EMA (Exponential) overlays.
 
-Multiple time ranges (1M, 3M, 6M, 1Y, YTD)
+Bollinger Bands: Analyze volatility and potential price breakouts.
 
-OHLCV daily data table
+Interactive Visualizations: High-performance Plotly candlestick charts allowing for zooming, panning, and detailed data inspection.
 
-Lightweight single-file app
+Deep Data Dive: Access granular daily data including Open, Close, High, Low, and Volume metrics.
 
-Live Demo
+Flexible Timeframes: Toggle seamlessly between 1-month, 3-month, 6-month, and 1-year historical views.
 
-https://stocklens-awrx5pgwutdfsjsdwagzyj.streamlit.app/
+🛠️ Tech Stack
+Frontend/Framework: Streamlit
 
-Tech Stack
+Data Source: yfinance (Yahoo Finance API)
 
-Python
+Visualization: Plotly
 
-Streamlit
+Data Manipulation: Pandas, NumPy
 
-Plotly
+Language: Python
 
-yfinance
+📂 Project Structure
+Plaintext
 
-Pandas
-
-NumPy
-
-Project Structure
 financial-dashboard/
-  financial_dashboard.py
-  requirements.txt
-  .streamlit/
-    config.toml
+├── .streamlit/
+│   └── config.toml          # Streamlit UI configuration
+├── financial_dashboard.py   # Main application entry point
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation
+💻 Local Installation & Setup
+If you wish to run this dashboard locally, follow these steps:
 
-Run Locally
-python -m venv .venv
+Clone the repository:
 
+Bash
 
-Windows:
+git clone https://github.com/your-username/stocklens.git
+cd stocklens
+Install dependencies:
 
-.venv\Scripts\activate
-
-
-macOS / Linux:
-
-source .venv/bin/activate
-
-
-Install packages:
+Bash
 
 pip install -r requirements.txt
+Run the application:
 
-
-Run:
+Bash
 
 streamlit run financial_dashboard.py
+🔮 Future Roadmap
+The following features are planned for future releases:
 
-Developer
+[ ] Integration of MACD (Moving Average Convergence Divergence) indicators.
 
-Built by Arnav Parashar
-Final-year IT student at VIT Vellore.
+[ ] Multi-stock comparison charts for benchmarking performance.
 
-License
+[ ] Export functionality (download charts/reports as CSV or PDF).
 
-MIT License
+[ ] Mobile-responsive layout optimizations.
+
+👨‍💻 About the Creator
+Gyanvi Agarwal Final Year, Computer Science and Engineering | VIT
+
+A passionate developer bridging the gap between Data Science and Finance. I specialize in building impactful tech solutions that make complex data accessible and understandable.
+
+📄 License
+This project is open-source and available under the MIT License. You are free to use, modify, and distribute it with proper attribution.
