@@ -5,6 +5,25 @@ import yfinance as yf
 import pandas as pd
 import plotly.graph_objs as go
 from plotly.subplots import make_subplots
+
+
+def hex_to_rgba(hex_color: str, alpha: float = 0.18) -> str:
+    """Convert a hex color like '#636EFA' to an rgba() string with given alpha."""
+    if not isinstance(hex_color, str):
+        return hex_color
+    h = hex_color.lstrip('#')
+    # support short form like 'abc'
+    if len(h) == 3:
+        h = ''.join([c*2 for c in h])
+    if len(h) != 6:
+        return hex_color
+    try:
+        r = int(h[0:2], 16)
+        g = int(h[2:4], 16)
+        b = int(h[4:6], 16)
+        return f'rgba({r},{g},{b},{alpha})'
+    except Exception:
+        return hex_color
 from datetime import datetime, timedelta
 
 # Set page config (must be first Streamlit call)
@@ -349,36 +368,68 @@ def plot_price_with_volume(df, ticker):
     return fig
 
 def multi_plot(ticker_list, start, end):
+    # Render an indexed area chart (semi-transparent) for comparing growth
     fig = go.Figure()
-    for tick in ticker_list:
+    # color palette (extend as needed)
+    palette = ["#636EFA", "#EF553B", "#00CC96", "#AB63FA", "#FFA15A", "#19D3F3"]
+    for i, tick in enumerate(ticker_list):
         data = yf.download(tick, start=start, end=end)
         if data is None:
             continue
-        # Normalize Series -> DataFrame for single-row downloads
         if isinstance(data, pd.Series):
             try:
                 data = data.to_frame().T
             except Exception:
                 data = pd.DataFrame([data])
-        if not data.empty:
-            # guard: ensure 'Close' in columns
-            if "Close" in data.columns:
-                try:
-                    data.index = pd.to_datetime(data.index)
-                except Exception:
-                    pass
-                data = data.sort_index()
-                y = data["Close"].astype(float)
-                # normalize to 100 at the start to compare growth
-                try:
-                    base = float(y.iloc[0])
-                    norm = (y / base) * 100
-                except Exception:
-                    norm = y
-                mode_m = "lines+markers" if len(norm) < 10 else "lines"
-                fig.add_trace(go.Scatter(x=data.index, y=norm, mode=mode_m, name=tick, hovertemplate="%{x|%b %d, %Y}<br><b>%{fullData.name}:</b> %{y:.2f}<extra></extra>"))
-    fig.update_layout(title="Indexed Close Prices (Base = 100)", xaxis_title="Date", yaxis_title="Index (100 = start)", template="plotly_dark", height=420)
-    fig.update_xaxes(showgrid=False)
+        if data.empty:
+            continue
+        if "Close" not in data.columns:
+            continue
+
+        # normalize index and sort
+        try:
+            data.index = pd.to_datetime(data.index).normalize()
+        except Exception:
+            try:
+                data.index = pd.to_datetime(data.index)
+            except Exception:
+                pass
+        data = data.sort_index()
+
+        y = data["Close"].astype(float)
+        try:
+            base = float(y.iloc[0])
+            norm = (y / base) * 100
+        except Exception:
+            norm = y
+
+        color = palette[i % len(palette)]
+        fillcolor = hex_to_rgba(color, 0.18)
+        # mode: markers for short series
+        mode_m = "lines+markers" if len(norm) < 10 else "lines"
+
+        fig.add_trace(go.Scatter(
+            x=data.index,
+            y=norm,
+            mode=mode_m,
+            name=tick,
+            line=dict(color=color, width=2),
+            fill="tozeroy",
+            fillcolor=fillcolor,
+            hovertemplate="%{x|%b %Y}<br><b>%{fullData.name}:</b> %{y:.2f}<extra></extra>"
+        ))
+
+    fig.update_layout(
+        title="Indexed Close Prices (Base = 100)",
+        xaxis_title="Date",
+        yaxis_title="Index (100 = start)",
+        template="plotly_dark",
+        height=420,
+        hovermode="x unified",
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+    )
+
+    fig.update_xaxes(showgrid=False, tickformat="%b %Y", nticks=6)
     fig.update_yaxes(separatethousands=True)
     return fig
 
