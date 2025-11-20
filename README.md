@@ -1,96 +1,75 @@
 StockLens — Financial Dashboard
 
-StockLens is a clean and intuitive Streamlit dashboard for exploring stock market performance.
-It provides real-time data, interactive charts, and essential technical indicators — designed with a modern, minimal UI.
+StockLens is a simple, clean Streamlit dashboard for exploring stock prices with live data and technical indicators.
+It is built for clarity, speed and ease of use.
 
-✨ Highlights
+Features
 
-Interactive candlestick charts (Plotly)
+Live stock price lookup
 
-Live stock data (yfinance)
+Interactive candlestick chart
 
-Technical indicators:
-
-RSI
-
-SMA
-
-EMA
+RSI, SMA, EMA indicators
 
 Multiple time ranges (1M, 3M, 6M, 1Y, YTD)
 
-Clean OHLCV table (Open, High, Low, Close, Volume)
+OHLCV daily data table
 
-Lightweight single-file Streamlit application
+Lightweight single-file app
 
-🔗 Live Demo
+Live Demo
 
-Run the live app:
 https://stocklens-awrx5pgwutdfsjsdwagzyj.streamlit.app/
 
-🧱 Tech Stack
-Layer	Tools
-Frontend	Streamlit
-Visuals	Plotly
-Data Source	yfinance
-Processing	Pandas, NumPy
-Language	Python
-📁 Project Structure
-financial-dashboard/
-│
-├── financial_dashboard.py
-├── requirements.txt
-└── .streamlit/
-    └── config.toml
+Tech Stack
 
-🚀 Run Locally
-1. Create virtual environment
+Python
+
+Streamlit
+
+Plotly
+
+yfinance
+
+Pandas
+
+NumPy
+
+Project Structure
+financial-dashboard/
+  financial_dashboard.py
+  requirements.txt
+  .streamlit/
+    config.toml
+
+Run Locally
 python -m venv .venv
 
-2. Activate environment
 
-Windows
+Windows:
 
 .venv\Scripts\activate
 
 
-macOS / Linux
+macOS / Linux:
 
 source .venv/bin/activate
 
-3. Install dependencies
+
+Install packages:
+
 pip install -r requirements.txt
 
-4. Run the app
+
+Run:
+
 streamlit run financial_dashboard.py
 
-📌 Roadmap
+Developer
 
-MACD and Bollinger Bands
-
-Multi-stock comparison
-
-Export charts (CSV, PDF)
-
-Dark/Light theme toggle
-
-Mobile UI improvements
-
-👨‍💻 Developer
-
-Built by Arnav Parashar,
+Built by Arnav Parashar
 Final-year IT student at VIT Vellore.
-Passionate about practical data analytics and clean UI.
 
-📄 License
+License
 
-MIT License — free to use, modify, and distribute.
-
-🚨 IMPORTANT (you MUST do this or it will break AGAIN)
-✔ Open README in VS Code
-✔ At bottom-right: click CRLF → LF
-✔ Save file
-✔ Then run:
-git add README.md
-git commit -m "Fix README formatting"
-git push --force
+MIT License
