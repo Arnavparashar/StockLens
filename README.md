@@ -67,7 +67,7 @@ Mobile layout improvements
 👨‍💻 Developer
 
 Built by Arnav Parashar
-Final-year IT student at VIT Vellore, focused on clean UI and practical data applications.
+Final-year IT student at VIT Vellore, practical data aanalytics.
 
 📄 License
 
