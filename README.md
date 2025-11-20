@@ -1,80 +1,121 @@
 📈 StockLens: Interactive Financial Dashboard
-StockLens is a fully interactive financial analytics dashboard built to democratize stock market data. Designed for investors, students, and finance enthusiasts, it leverages the power of Python and Streamlit to transform complex market data into actionable insights.
 
-Users can explore historical performance, visualize critical technical indicators, and analyze market trends through dynamic, professional-grade visualizations.
+StockLens is a fully interactive financial analytics dashboard built to make stock market insights accessible to everyone.
+Designed for investors, students, and finance enthusiasts, it transforms complex market data into clear, actionable visual insights using Streamlit, Plotly, and yfinance.
+
+Users can explore historical performance, analyze technical indicators, and identify market trends through smooth, modern, professional-grade visualizations.
 
 🚀 Launch Live Dashboard
+
+https://stocklens-awrx5pgwutdfsjsdwagzyj.streamlit.app/
+
 🌟 Key Features
-Real-Time Market Data: Instantly fetch live data for any stock symbol (e.g., AAPL, TSLA, RELIANCE.NS) using the yfinance library.
+Real-Time Market Data
 
-Advanced Technical Analysis:
+Fetch instantly updated market data for any stock symbol (AAPL, TSLA, INFY, RELIANCE.NS, etc.) via the yfinance API.
 
-RSI (Relative Strength Index): Identify overbought or oversold conditions.
+Advanced Technical Analysis
 
-Moving Averages: Visualize trends with SMA (Simple) and EMA (Exponential) overlays.
+RSI (Relative Strength Index)
+Helps identify overbought/oversold zones.
 
-Bollinger Bands: Analyze volatility and potential price breakouts.
+Moving Averages
 
-Interactive Visualizations: High-performance Plotly candlestick charts allowing for zooming, panning, and detailed data inspection.
+SMA (Simple Moving Average)
 
-Deep Data Dive: Access granular daily data including Open, Close, High, Low, and Volume metrics.
+EMA (Exponential Moving Average)
+Useful for understanding price trends and smoothing volatility.
 
-Flexible Timeframes: Toggle seamlessly between 1-month, 3-month, 6-month, and 1-year historical views.
+(Upcoming) Bollinger Bands, MACD, and more indicators.
+
+Interactive Visualizations
+
+High-quality Plotly candlestick charts
+
+Zooming, panning, hover information
+
+Smooth user interaction with dynamic chart updates
+
+Deep Data Dive
+
+Access daily Open, Close, High, Low, and Volume metrics in a clean and readable view.
+
+Flexible Timeframes
+
+View and compare historical performance across:
+
+1 Month
+
+3 Months
+
+6 Months
+
+1 Year
 
 🛠️ Tech Stack
-Frontend/Framework: Streamlit
 
+Frontend / Framework: Streamlit
 Data Source: yfinance (Yahoo Finance API)
-
 Visualization: Plotly
-
 Data Manipulation: Pandas, NumPy
-
 Language: Python
 
 📂 Project Structure
-Plaintext
-
 financial-dashboard/
 ├── .streamlit/
-│   └── config.toml          # Streamlit UI configuration
-├── financial_dashboard.py   # Main application entry point
-├── requirements.txt         # Python dependencies
-└── README.md                # Project documentation
+│   └── config.toml            # Streamlit theme and UI configuration
+├── financial_dashboard.py     # Main Streamlit dashboard
+├── requirements.txt           # Python package dependencies
+└── README.md                  # Project documentation
+
 💻 Local Installation & Setup
-If you wish to run this dashboard locally, follow these steps:
 
-Clone the repository:
+Follow the steps below to run this dashboard on your system:
 
-Bash
+1️⃣ Clone the repository
+git clone https://github.com/Arnavparashar/StockLens.git
+cd StockLens
 
-git clone https://github.com/your-username/stocklens.git
-cd stocklens
-Install dependencies:
-
-Bash
-
+2️⃣ Install dependencies
 pip install -r requirements.txt
-Run the application:
 
-Bash
-
+3️⃣ Run the application
 streamlit run financial_dashboard.py
+
 🔮 Future Roadmap
-The following features are planned for future releases:
 
-[ ] Integration of MACD (Moving Average Convergence Divergence) indicators.
+ MACD (Moving Average Convergence Divergence) indicator
 
-[ ] Multi-stock comparison charts for benchmarking performance.
+ Bollinger Bands
 
-[ ] Export functionality (download charts/reports as CSV or PDF).
+ Multi-stock comparison & benchmarking
 
-[ ] Mobile-responsive layout optimizations.
+ Export charts/reports (CSV or PDF)
 
-👨‍💻 About the Creator
-Gyanvi Agarwal Final Year, Computer Science and Engineering | VIT
+ Mobile-responsive layout improvements
 
-A passionate developer bridging the gap between Data Science and Finance. I specialize in building impactful tech solutions that make complex data accessible and understandable.
+ Light/Dark theme toggle
+
+👨‍💻 About the Developer
+
+Arnav Parashar
+Final-year IT student at VIT Vellore
+
+Focused on:
+
+Data Analytics
+
+Financial Technology
+
+Streamlit Dashboards
+
+Clean and intuitive data visualization
+
+
+
+
 
 📄 License
-This project is open-source and available under the MIT License. You are free to use, modify, and distribute it with proper attribution.
+
+This project is open-source and available under the MIT License.
+Feel free to use, modify, and distribute it with proper attribution.
